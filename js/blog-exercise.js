@@ -62,14 +62,18 @@ const blogArticles = [
 ];
 
 // TODO: Add a new article to the array (add "SASS" inbetween the "CSS" and "JS" articles.)
-const newBlogArticles = [];
-for (var i = 0; i < blogArticles.length; i++) {
-  if (i == 3) {
-    newBlogArticles.push(new Article('Time for SASS', 'CSS with superpowers. Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.'));
-  }
-  newBlogArticles.push(blogArticles[i]);
+//created a loop to insert a new article
+// const newBlogArticles = [];
+// for (var i = 0; i < blogArticles.length; i++) {
+//   if (i == 3) {
+//     newBlogArticles.push(new Article('Time for SASS', 'CSS with superpowers. Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.'));
+//   }
+//   newBlogArticles.push(blogArticles[i]);
 
-}
+// }
+
+// Added splice method to insert
+blogArticles.splice(3, 0, new Article('Time for SASS', 'CSS with superpowers. Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.'));
 
 const articleOutputElement = document.querySelector('dl');
 const articleForm = document.querySelector('form');
@@ -82,7 +86,7 @@ articleForm.addEventListener('submit', event => { // Keep track of "event" objec
   let num = 1;
 
   // Outputs articles from blogArticles.
-  for (let article of newBlogArticles) {
+  for (let article of blogArticles) {
     // TODO: Loop through articles and output each of them to the browser.
     article.output(articleOutputElement, num++);
   }
