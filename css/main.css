@@ -7,9 +7,19 @@ form {
     position: relative;
 }
 
-input {
-    margin-left: 40%;
-    transform: translateX(-50%);
+fieldset legend {
+    color: aliceblue;
+}
+
+[type="text"]{
+    width: 75%;
+    border-radius: 5px;
+    margin: 1% 10%;
+}
+
+[value="Generate Articles"], [value="Add New Content"] {
+    display: block;
+    margin: 1% 40%;
     border-radius: 5px;
     align-items: center;
     color: #003399;

@@ -62,6 +62,11 @@ const blogArticles = [
 ];
 
 // TODO: Add a new article to the array (add "SASS" inbetween the "CSS" and "JS" articles.)
+//====two methods to insert manually into the Article array 
+//1. using a loop and push
+//2. using splice
+
+//====Method 1=====
 //created a loop to insert a new article
 // const newBlogArticles = [];
 // for (var i = 0; i < blogArticles.length; i++) {
@@ -72,11 +77,12 @@ const blogArticles = [
 
 // }
 
-// Added splice method to insert
-blogArticles.splice(3, 0, new Article('Time for SASS', 'CSS with superpowers. Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.'));
+//============Method 2===========
+// blogArticles.splice('Time for SASS', 0, new Article('CSS with superpowers. Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.'));
 
 const articleOutputElement = document.querySelector('dl');
 const articleForm = document.querySelector('form');
+//const articleForm = document.querySelector('[value="Generate Articles"]');
 
 // Added an event listener for SUBMITS on this form.
 articleForm.addEventListener('submit', event => { // Keep track of "event" object.
@@ -85,10 +91,25 @@ articleForm.addEventListener('submit', event => { // Keep track of "event" objec
 
   let num = 1;
 
+  //Added feature to allow automatic insertion based on users' preference
+  const newTitle = document.querySelector('#title');
+  const newContent = document.querySelector('#text');
+  const newLocation = document.querySelector('#no');
+
+  if (newTitle.value != "" && newContent.value != "") {
+    blogArticles.splice(Number(newLocation.value), 0, new Article(newTitle.value, newContent.value));
+  }
+
   // Outputs articles from blogArticles.
   for (let article of blogArticles) {
     // TODO: Loop through articles and output each of them to the browser.
     article.output(articleOutputElement, num++);
   }
+
+  newTitle.value = "";
+  newContent.value = "";
+  newLocation.value = "";
 });
+
+
 

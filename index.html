@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,21 @@
   <!-- Script(s): -->
   <script type="text/JavaScript" src="./js/blog-exercise.js" defer></script>
 </head>
+
 <body>
   <h1>Article Review</h1>
   <form action="#" method="GET">
     <h2>Generate Articles</h2>
-    <input type="submit" value="Generate Articles">
+    <fieldset>
+      <legend> Add new Content </legend>
+      <input type="text" id="title" placeholder="Add Title">
+      <input type="text" id="text" placeholder="Add Content">
+      <input type="text" id="no" placeholder="Location to Insert">
+    </fieldset>
+    <!-- <input type="button" id="content" value="Add New Content"> -->
+    <input type="submit" value="Generate Articles">    
   </form>
   <dl></dl>
 </body>
+
 </html>
